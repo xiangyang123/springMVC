@@ -36,7 +36,7 @@ public class TestMyBatiesController {
     @Test
     public void testLogin() {
         try {
-            request.setParameter("userName111", "admin");
+            request.setParameter("userName111222", "admin");
             request.setParameter("password", "2");
             assertEquals("login",userController.loginTest(request,response)) ;
             request.setParameter("id","1");
