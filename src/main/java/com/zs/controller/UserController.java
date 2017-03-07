@@ -30,7 +30,6 @@ public class UserController {
         int userId = Integer.parseInt(request.getParameter("id"));
         User user = this.userService.getUserById(userId);
         model.addAttribute("user",user);
-        System.out.println(12345678);
         return "showUser";
     }
 
