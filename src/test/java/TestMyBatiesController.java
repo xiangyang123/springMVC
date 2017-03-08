@@ -7,9 +7,7 @@ import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 
@@ -36,7 +34,7 @@ public class TestMyBatiesController {
     @Test
     public void testLogin() {
         try {
-            request.setParameter("userName111", "admin");
+            request.setParameter("userName", "admin");
             request.setParameter("password", "2");
             assertEquals("login",userController.loginTest(request,response)) ;
             request.setParameter("id","1");
