@@ -16,6 +16,10 @@
     from user_t
     where id = #{id,jdbcType=INTEGER}
   </select>
+
+  <select id="findList" resultMap="BaseResultMap" parameterType="java.util.List">
+    select * FROM user_t order by id desc
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from user_t
     where id = #{id,jdbcType=INTEGER}

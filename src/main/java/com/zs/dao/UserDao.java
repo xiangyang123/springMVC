@@ -3,6 +3,8 @@ package com.zs.dao;
 
 import com.zs.pojo.User;
 
+import java.util.List;
+
 public interface UserDao {
     int deleteByPrimaryKey(Integer id);
 
@@ -15,4 +17,6 @@ public interface UserDao {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    List<User> findList();
 }

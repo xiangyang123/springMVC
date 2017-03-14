@@ -47,6 +47,14 @@ public class TestMyBatiesController {
         }
     }
 
+    @Test
+    public void testSaveUser(){
+        request.setParameter("userName","lihua");
+        request.setParameter("password","password");
+        request.setParameter("age","24");
+        assertEquals("add",userController.add(request));
+    }
+
     @After
     public void tearDown(){
         System.out.println("tearDown");

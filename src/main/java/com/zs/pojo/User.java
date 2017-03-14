@@ -43,4 +43,13 @@ public class User implements Serializable{
     public void setAge(Integer age) {
         this.age = age;
     }
+
+    public User(String userName, String password, Integer age) {
+        this.userName = userName;
+        this.password = password;
+        this.age = age;
+    }
+
+    public User() {
+    }
 }

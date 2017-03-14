@@ -2,6 +2,7 @@ package com.zs.controller;
 
 import com.zs.pojo.User;
 import com.zs.service.UserService;
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -22,7 +23,7 @@ public class UserController {
     @Resource
     private UserService userService;
 
-    @RequestMapping(value = "/showUser",method = RequestMethod.POST)
+    @RequestMapping(value = "/showUser",method = RequestMethod.GET)
     public String toIndex(HttpServletRequest request, ModelMap model){
         int userId = Integer.parseInt(request.getParameter("id"));
         User user = this.userService.getUserById(userId);
@@ -45,6 +46,24 @@ public class UserController {
             return "login";
         }
     }
+
+    @RequestMapping(value = "/add",method = RequestMethod.POST)
+    public String add(HttpServletRequest request){
+        String userName  = request.getParameter("userName");
+        String password = request.getParameter("password");
+        String ageString = request.getParameter("age");
+
+        int age = 0;
+        if(StringUtils.isNotBlank(ageString)){
+            age = Integer.parseInt(ageString);
+        }
+        User user = new User(userName,password,age);
+        int result = userService.saveUser(user);
+        System.out.println(result);
+        return "add";
+    }
+
+
 
 
 
