@@ -54,6 +54,10 @@ public class TestMyBatiesController {
         request.setParameter("age","24");
         assertEquals("add",userController.add(request));
     }
+    @Test
+    public void testJedis(){
+        userController.saveJedis();
+    }
 
     @After
     public void tearDown(){
